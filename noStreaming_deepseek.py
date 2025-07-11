@@ -1,9 +1,10 @@
 # No Streaming
-# sk-fe1b91723bc7450ba1edc6c924830a1b   ||    auliarafli819@gmail.com    (( VALID!!!! ))
 
 from openai import OpenAI
 
-client = OpenAI(api_key='sk-fe1b91723bc7450ba1edc6c924830a1b',
+deepseek_api_key = input('Deepseek API key:\n')
+
+client = OpenAI(api_key=deepseek_api_key,
                 base_url='https://api.deepseek.com')
 
 

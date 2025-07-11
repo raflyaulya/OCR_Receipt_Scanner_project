@@ -1,5 +1,3 @@
-# sk-fe1b91723bc7450ba1edc6c924830a1b   ||    auliarafli819@gmail.com    (( VALID!!!! ))
-
 from PIL import Image
 import pytesseract
 import requests
@@ -43,6 +41,7 @@ def query_deepseek(api_key, extracted_text):
 # Contoh penggunaan
 image_path = "strukbelanja.jpg"  # pict of struk belanja
 extracted_text = extract_text_from_image(image_path)
-api_key = "sk-fe1b91723bc7450ba1edc6c924830a1b"
+api_key = input('DeepSeek API key:\n')
+
 result = query_deepseek(api_key, extracted_text)
 print(result)

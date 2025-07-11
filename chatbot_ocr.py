@@ -1,4 +1,3 @@
-# sk-fe1b91723bc7450ba1edc6c924830a1b   ||    auliarafli819@gmail.com    (( VALID!!!! ))
 
 import  telebot
 from PIL import Image 
@@ -7,9 +6,9 @@ import io
 from openai import OpenAI
 
 # chatbot Telegram API key 
-tele_api_key = '7353933894:AAHtxm0XsZ1qynfZSXhg88qXAwHUixesNtE'
+tele_api_key = input('telegram API key:\n')
 API_TOKEN = tele_api_key
-DEEPSEEK_API_KEY= 'sk-fe1b91723bc7450ba1edc6c924830a1b'
+DEEPSEEK_API_KEY= input("DeepSeek API Key:\n")
 
 bot = telebot.TeleBot(API_TOKEN)
 

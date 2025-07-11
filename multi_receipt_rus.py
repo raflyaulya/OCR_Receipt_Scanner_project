@@ -1,4 +1,3 @@
-# sk-fe1b91723bc7450ba1edc6c924830a1b   ||    auliarafli819@gmail.com    (( VALID!!!! ))
 
 import pytesseract
 from PIL import Image
@@ -9,7 +8,7 @@ from openai import OpenAI
 # Konfigurasi Tesseract OCR
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-api_key = 'sk-fe1b91723bc7450ba1edc6c924830a1b' 
+api_key = input('Deepseek API key:\n') 
 
 # Inisialisasi DeepSeek Client
 client = OpenAI(
