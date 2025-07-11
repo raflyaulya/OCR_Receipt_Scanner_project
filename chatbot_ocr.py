@@ -51,8 +51,9 @@ def analyze_with_deepseek(text):
                 """},
                 {"role": "user", "content": f"Analyze the following receipt text and then please write the output as 4 formats (Store, Date, Address, Total) only! No explanation, no extra notes! \n\n{text}"}  
             ],
-            temperature=0.2,
-            max_tokens=300
+            # temperature=0.2, # lebih rendah lebih baik!
+            temperature=0.7, # lebih rendah lebih baik!
+            max_tokens=300  # embedding lebih berguna disini, to find the better max tokens 
         )
         return response.choices[0].message.content.strip()
     except Exception as e:
