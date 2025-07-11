@@ -6,9 +6,9 @@ import io
 from openai import OpenAI
 
 # chatbot Telegram API key 
-tele_api_key = input('telegram API key:\n')
+tele_api_key = input('\ntelegram API key:\n')
 API_TOKEN = tele_api_key
-DEEPSEEK_API_KEY= input("DeepSeek API Key:\n")
+DEEPSEEK_API_KEY= input("\nDeepSeek API Key:\n")
 
 bot = telebot.TeleBot(API_TOKEN)
 
