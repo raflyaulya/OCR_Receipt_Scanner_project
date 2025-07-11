@@ -1,6 +1,5 @@
 # sk-fe1b91723bc7450ba1edc6c924830a1b   ||    auliarafli819@gmail.com    (( VALID!!!! ))
 
-# from telegram import Update
 import  telebot
 from PIL import Image 
 import pytesseract
