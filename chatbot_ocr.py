@@ -1,18 +1,20 @@
-
-import  telebot
+import telebot
 from PIL import Image 
 import pytesseract
 import io
 from openai import OpenAI
+from dotenv import *
+import os 
+
+load_dotenv(find_dotenv())
 
 # chatbot Telegram API key 
-tele_api_key = input('\ntelegram API key:\n')
-API_TOKEN = tele_api_key
-DEEPSEEK_API_KEY= input("\nDeepSeek API Key:\n")
+TELEGRAM_API = os.getenv('TELEGRAM_API') 
+DEEPSEEK_API = os.getenv('DEEPSEEK_API')
 
-bot = telebot.TeleBot(API_TOKEN)
+bot = telebot.TeleBot(TELEGRAM_API)
 
-client = OpenAI(api_key=DEEPSEEK_API_KEY,
+client = OpenAI(api_key=DEEPSEEK_API,
                 base_url='https://api.deepseek.com/v1')
 
 
