@@ -8,7 +8,7 @@ import os
 
 load_dotenv(find_dotenv())
 
-# chatbot Telegram API key test
+# chatbot Telegram API key
 TELEGRAM_API = os.getenv('TELEGRAM_API') 
 DEEPSEEK_API = os.getenv('DEEPSEEK_API')
 
