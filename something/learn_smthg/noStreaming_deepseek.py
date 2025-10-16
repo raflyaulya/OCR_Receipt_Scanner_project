@@ -1,10 +1,13 @@
 # No Streaming
 
 from openai import OpenAI
+from dotenv import load_dotenv, find_dotenv
+import os 
 
-deepseek_api_key = input('Deepseek API key:\n')
+load_dotenv(find_dotenv())
+DEEPSEEK_API = os.getenv('DEEPSEEK_API')
 
-client = OpenAI(api_key=deepseek_api_key,
+client = OpenAI(api_key=DEEPSEEK_API,
                 base_url='https://api.deepseek.com')
 
 
