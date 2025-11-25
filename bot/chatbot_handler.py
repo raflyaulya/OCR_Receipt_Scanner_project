@@ -42,8 +42,8 @@ def handle_photo(message):
             return
 
         bot.reply_to(message, "Please wait!\nПодаждите пожалуйста!")
-        # result = analyze_with_deepseek(text)  # using Deepseek LLMs
-        result = analyze_with_gemini_simple(text)    # using GEMINI LLMs
+        result = analyze_with_deepseek(text)  # using Deepseek LLMs
+        # result = analyze_with_gemini_simple(text)    # using GEMINI LLMs
         bot.reply_to(message, f"{result}")
         followup_text = (
         "✅ *Analysis completed!*\n\n"

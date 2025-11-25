@@ -7,6 +7,8 @@ from core.config import DEEPSEEK_API, DEEPSEEK_BASE_URL, GEMINI_API
 
 client = OpenAI(api_key=DEEPSEEK_API, base_url=DEEPSEEK_BASE_URL)
 
+
+# ================================   LLM based on DeepSeek   ================================
 # def analyze_with_deepseek(text: str) -> str:
 def analyze_with_deepseek(text):
     try:
@@ -39,6 +41,8 @@ def analyze_with_deepseek(text):
 # ==================================================================================
 # core/llm_utils.py (Versi Sederhana)
 
+# ================================   LLM based on Gemini   ================================
+
 try:
     client = genai.Client(
         api_key=GEMINI_API
@@ -49,14 +53,9 @@ except Exception as e:
     client = None
 
 def analyze_with_gemini_simple(text: str) -> str:
-    """
-    Menggantikan DeepSeek dengan Gemini menggunakan struktur prompt yang sederhana.
-    Output yang diharapkan tetap berupa string JSON.
-    """
     if not client:
         return "[GEMINI CLIENT ERROR]"
 
-    # Model yang disarankan: gemini-2.5-flash (cepat & hemat)
     MODEL = "gemini-2.5-flash"
     
     # 1. System Instruction (Mirip dengan yang Anda pakai)
@@ -83,11 +82,11 @@ def analyze_with_gemini_simple(text: str) -> str:
     try:
         response = client.models.generate_content(
             model=MODEL,
-            contents=[
-                types.Content(role="system", 
-                              parts= [types.Part.from_text(system_content)]),
-                types.Content(role="user", 
-                              parts= [types.Part.from_text(user_content)])
+            # contents=[types.Content(role="system", parts= [types.Part.from_text(system_content)]),
+            #           types.Content(role="user", parts= [types.Part.from_text(user_content)])],
+            content= [
+                {'role': 'system', 'parts': [{'text': system_content}]},
+                {'role': 'user', 'parts': [{'text': user_content}]},
             ],
             config=types.GenerateContentConfig(
                 temperature=0.3,
