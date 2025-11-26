@@ -3,7 +3,7 @@ from openai import OpenAI
 from google import genai 
 from google.genai import types
 import json
-from core.config import DEEPSEEK_API, DEEPSEEK_BASE_URL, GEMINI_API
+from core.config import *
 
 client = OpenAI(api_key=DEEPSEEK_API, base_url=DEEPSEEK_BASE_URL)
 

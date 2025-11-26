@@ -51,7 +51,8 @@ def analyze_with_deepseek(text):
                         Address: [address]  
                         Total: [total payment]  
                 """},
-                {"role": "user", "content": f"Analyze the following receipt text and then please write the output as 4 formats (Store, Date, Address, Total) only! No explanation, no extra notes! \n\n{text}"}  
+                {"role": "user", 
+                 "content": f"Analyze the following receipt text and then please write the output as 4 formats (Store, Date, Address, Total) only! No explanation, no extra notes! \n\n{text}"}  
             ],
             # temperature=0.2, # lebih rendah lebih baik!
             temperature=0.7, # lebih rendah lebih baik!
