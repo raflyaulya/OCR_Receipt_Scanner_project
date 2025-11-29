@@ -2,8 +2,10 @@
 import pytesseract
 from PIL import Image
 import io
-from bot.chatbot_handler import bot
+# from bot.chatbot_handler import bot 
+from bot import bot
 from core.llm_utils import analyze_with_deepseek
+# from llm_utils import analyze_with_deepseek
 from core.config import *
 
 

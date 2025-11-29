@@ -31,7 +31,7 @@ def analyze_with_deepseek(text):
                 {"role": "user", 
                  "content": f"Analyze the following receipt text and then please write the output as 4 formats (Store, Date, Address, Total) only! No explanation, no extra notes! \n\n{text}"}
             ],
-            temperature=0.2,
+            temperature=0.5,
             max_tokens=300
         )
         return response.choices[0].message.content.strip()
