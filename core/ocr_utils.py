@@ -31,6 +31,17 @@ def extract_text_from_image(image_bytes):
         # TAMBAHAN / EDITING 
         result = analyze_with_deepseek(text_result)
         bot.reply_to(image_bytes, f"{result}")
+
+        followup_text = (
+        "✅ *Analysis completed!*\n\n"
+        "You can continue with one of the following options:\n"
+        "• /info — Learn more about this bot\n"
+        "• /help — Need assistance?\n"
+        "• /stop — End the session for now\n\n"
+        "_Thank you for using theRaf OCR Scanner 🧾_\n" 
+        "We hope this helps you manage your spending better!")
+        bot.send_message(image_bytes.chat.id, followup_text, parse_mode='Markdown')
+
     except Exception as e: 
         bot.reply_to(image_bytes, f"something wrong just happened bro :( \n{e}") 
         # return text.strip()
