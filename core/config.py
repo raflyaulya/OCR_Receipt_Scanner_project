@@ -6,6 +6,7 @@ load_dotenv(find_dotenv())
 DEEPSEEK_API = os.getenv('DEEPSEEK_API') 
 TELEGRAM_API = os.getenv('TELEGRAM_API') 
 GEMINI_API = os.getenv('GEMINI_API')
+BASE_URL = os.getenv('BASE_URL')
 
 # language setting
 OCR_LANG = 'ind+eng+rus' 
