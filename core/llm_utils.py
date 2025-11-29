@@ -5,7 +5,10 @@ from google.genai import types
 import json
 from core.config import *
 
-client = OpenAI(api_key=DEEPSEEK_API, base_url=DEEPSEEK_BASE_URL)
+client = OpenAI(
+    api_key=DEEPSEEK_API, 
+    base_url=DEEPSEEK_BASE_URL
+    )
 
 
 # ================================   LLM based on DeepSeek   ================================
@@ -43,63 +46,63 @@ def analyze_with_deepseek(text):
 
 # ================================   LLM based on Gemini   ================================
 
-try:
-    client = genai.Client(
-        api_key=GEMINI_API
-    )
-except Exception as e:
-    # Handling error jika API Key tidak ditemukan
-    print(f"Error initializing Gemini client: {e}")
-    client = None
+# try:
+#     client = genai.Client(
+#         api_key=GEMINI_API
+#     )
+# except Exception as e:
+#     # Handling error jika API Key tidak ditemukan
+#     print(f"Error initializing Gemini client: {e}")
+#     client = None
 
-def analyze_with_gemini_simple(text: str) -> str:
-    if not client:
-        return "[GEMINI CLIENT ERROR]"
+# def analyze_with_gemini_simple(text: str) -> str:
+#     if not client:
+#         return "[GEMINI CLIENT ERROR]"
 
-    MODEL = "gemini-2.5-flash"
+#     MODEL = "gemini-2.5-flash"
     
-    # 1. System Instruction (Mirip dengan yang Anda pakai)
-    # Tambahkan instruksi untuk format output JSON yang ketat.
-    system_content = """
-    Anda adalah receipt analysis expert. Tugas Anda:
-    1. Identify the store, date, and total purchase.
-    2. Extract the address (if applicable).
-    3. Format the ENTIRE output as a STRICT JSON object with no explanation, 
-    no commentary, and no extra text outside the JSON block.
+#     # 1. System Instruction (Mirip dengan yang Anda pakai)
+#     # Tambahkan instruksi untuk format output JSON yang ketat.
+#     system_content = """
+#     Anda adalah receipt analysis expert. Tugas Anda:
+#     1. Identify the store, date, and total purchase.
+#     2. Extract the address (if applicable).
+#     3. Format the ENTIRE output as a STRICT JSON object with no explanation, 
+#     no commentary, and no extra text outside the JSON block.
     
-    FORMAT JSON:
-    {
-        "store": "[store name]",
-        "date": "[Date in YYYY-MM-DD]",
-        "total": "[total payment amount]",
-        "address": "[address or 'N/A']"
-    }
-    """
+#     FORMAT JSON:
+#     {
+#         "store": "[store name]",
+#         "date": "[Date in YYYY-MM-DD]",
+#         "total": "[total payment amount]",
+#         "address": "[address or 'N/A']"
+#     }
+#     """
 
-    # 2. User Prompt
-    user_content = f"Analyze the following receipt text:\n\n{text}"
+#     # 2. User Prompt
+#     user_content = f"Analyze the following receipt text:\n\n{text}"
 
-    try:
-        response = client.models.generate_content(
-            model=MODEL,
-            # contents=[types.Content(role="system", parts= [types.Part.from_text(system_content)]),
-            #           types.Content(role="user", parts= [types.Part.from_text(user_content)])],
-            content= [
-                {'role': 'system', 'parts': [{'text': system_content}]},
-                {'role': 'user', 'parts': [{'text': user_content}]},
-            ],
-            config=types.GenerateContentConfig(
-                temperature=0.3,
-                max_output_tokens=300
-            )
-        )
+#     try:
+#         response = client.models.generate_content(
+#             model=MODEL,
+#             # contents=[types.Content(role="system", parts= [types.Part.from_text(system_content)]),
+#             #           types.Content(role="user", parts= [types.Part.from_text(user_content)])],
+#             content= [
+#                 {'role': 'system', 'parts': [{'text': system_content}]},
+#                 {'role': 'user', 'parts': [{'text': user_content}]},
+#             ],
+#             config=types.GenerateContentConfig(
+#                 temperature=0.3,
+#                 max_output_tokens=300
+#             )
+#         )
         
-        # Mengembalikan teks hasil respons (berupa string JSON)
-        return response.text.strip()
+#         # Mengembalikan teks hasil respons (berupa string JSON)
+#         return response.text.strip()
 
-    except Exception as e:
-        # Handling exception
-        return f"[GEMINI ERROR] {e}"
+#     except Exception as e:
+#         # Handling exception
+#         return f"[GEMINI ERROR] {e}"
 
 # --- Contoh Penggunaan ---
 # text_from_ocr = "..."

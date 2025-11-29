@@ -8,7 +8,7 @@ TELEGRAM_API = os.getenv('TELEGRAM_API')
 GEMINI_API = os.getenv('GEMINI_API')
 
 # language setting
-OCR_LANG = 'ind+eng' 
+OCR_LANG = 'ind+eng+rus' 
 
 # path to Tesseract 
 TESSERACT_CMD =r'C:\Program Files\Tesseract-OCR\tesseract.exe'
