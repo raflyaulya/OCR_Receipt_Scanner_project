@@ -1,12 +1,13 @@
 # bot/chatbot_handler.py
 import telebot
-from core.config import TELEGRAM_API
+# from core.config import TELEGRAM_API
+from bot import bot
 from core.ocr_utils import extract_text_from_image
 from core.llm_utils import analyze_with_deepseek, analyze_with_gemini_simple
 import os 
 import time
 
-bot = telebot.TeleBot(TELEGRAM_API)
+# bot = telebot.TeleBot(TELEGRAM_API, p)
 
 # =====     START handler
 @bot.message_handler(commands=['start'])
