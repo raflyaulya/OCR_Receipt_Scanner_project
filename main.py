@@ -15,7 +15,7 @@ async def home():
 @app.on_event('startup')
 async def startup_event():
     if not BASE_URL:
-        print("BASE_URL is not set. Please set it in the .env file.")
+        print("BASE_URL is not  set. Please set it in the .env file.")
         return
     
     webhook_url = f"{BASE_URL}/webhook"
